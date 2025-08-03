@@ -39,7 +39,7 @@ WildRydes.map = WildRydes.map || {};
     }
 
     function completeRequest(result) {
-    var unicorn = result.unicorn;
+    var unicorn = result.Unicorn;
     if (!unicorn) {
         console.error('Unicorn not found in result.');
         displayUpdate('Sorry, no unicorn was assigned.');
@@ -112,6 +112,7 @@ WildRydes.map = WildRydes.map || {};
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
+
 
 
 

@@ -53,9 +53,9 @@ WildRydes.map = WildRydes.map || {};
 
     animateArrival(function animateCallback() {
         displayUpdate(`${unicorn.Name} has arrived. Giddy up!`);
-        if (WildRydes?.map?.unsetLocation) {
-            WildRydes.map.unsetLocation();
-        }
+        if (WildRydes && WildRydes.map && WildRydes.map.unsetLocation) {
+    WildRydes.map.unsetLocation();
+}
         $('#request').prop('disabled', true).text('Set Pickup');
     });
 }
@@ -113,4 +113,5 @@ WildRydes.map = WildRydes.map || {};
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
+
 

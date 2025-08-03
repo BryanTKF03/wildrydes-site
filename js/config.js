@@ -7,12 +7,6 @@ window._config = {
     api: {
         invokeUrl: 'https://bw5qubnnm5.execute-api.ap-southeast-1.amazonaws.com/devRydes'
     }
-    fetch('config.json')
-  .then(response => response.json())
-  .then(data => {
-      window._config = data;
-      // Now _config is available
-  });
 };
 
 

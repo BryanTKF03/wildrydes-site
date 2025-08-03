@@ -39,19 +39,27 @@ WildRydes.map = WildRydes.map || {};
     }
 
     function completeRequest(result) {
-        var unicorn;
-        var pronoun;
-        console.log('Response received from API: ', result);
-        unicorn = result.Unicorn;
-        pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.');
-        animateArrival(function animateCallback() {
-            displayUpdate(unicorn.Name + ' has arrived. Giddy up!');
-            WildRydes.map.unsetLocation();
-            $('#request').prop('disabled', 'disabled');
-            $('#request').text('Set Pickup');
-        });
+    console.log('Response received from API: ', result);
+
+    var unicorn = result.Unicorn;
+    if (!unicorn) {
+        console.error('Unicorn not found in result.');
+        displayUpdate('Sorry, no unicorn was assigned.');
+        return;
     }
+
+    var pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
+    displayUpdate(`${unicorn.Name}, your ${unicorn.Color} unicorn, is on ${pronoun} way.`);
+
+    animateArrival(function animateCallback() {
+        displayUpdate(`${unicorn.Name} has arrived. Giddy up!`);
+        if (WildRydes?.map?.unsetLocation) {
+            WildRydes.map.unsetLocation();
+        }
+        $('#request').prop('disabled', true).text('Set Pickup');
+    });
+}
+
 
     // Register click handler for #request button
     $(function onDocReady() {
@@ -105,3 +113,4 @@ WildRydes.map = WildRydes.map || {};
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
+

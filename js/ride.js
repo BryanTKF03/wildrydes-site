@@ -42,9 +42,9 @@ WildRydes.map = WildRydes.map || {};
     var unicorn = result.Unicorn;
     if (!unicorn) {
         console.error('Unicorn not found in result.');
+        console.log('Response received from API: ', result);
         displayUpdate('Sorry, no unicorn was assigned.');
         return;
-        console.log('Response received from API: ', result);
     }
 
     var pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
@@ -112,6 +112,7 @@ WildRydes.map = WildRydes.map || {};
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
+
 
 
 

@@ -89,8 +89,6 @@ WildRydes.map = WildRydes.map || {};
         requestUnicorn(pickupLocation);
     }
 
-    console.log('Full API response:', result);
-
     function animateArrival(callback) {
         var dest = WildRydes.map.selectedPoint;
         var origin = {};
@@ -114,6 +112,7 @@ WildRydes.map = WildRydes.map || {};
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
+
 
 
 

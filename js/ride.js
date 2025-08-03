@@ -42,7 +42,6 @@ WildRydes.map = WildRydes.map || {};
     var unicorn = result.Unicorn;
     if (!unicorn) {
         console.error('Unicorn not found in result.');
-        console.log('Response received from API: ', result.Unicorn);
         displayUpdate('Sorry, no unicorn was assigned.');
         return;
     }
@@ -112,6 +111,7 @@ WildRydes.map = WildRydes.map || {};
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
+
 
 
 

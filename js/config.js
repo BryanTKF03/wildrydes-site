@@ -6,8 +6,10 @@ window._config = {
     },
     api: {
         invokeUrl: 'https://bw5qubnnm5.execute-api.ap-southeast-1.amazonaws.com/devRydes'
+        window.config
     }
 };
+
 
 
 
